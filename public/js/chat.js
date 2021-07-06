@@ -17,9 +17,10 @@ socket.on('message', (message) => {
     $messages.insertAdjacentHTML('beforeend', html)
 })
 
-socket.on('locationMessage', (url) => {
+socket.on('locationMessage', (message) => {
     const html = Mustache.render(locationMessageTemplate, {
-        url
+        url: message.url,
+        createdAt: moment(message.createdAt).format('HH:mm')
     })
     $messages.insertAdjacentHTML('beforeend', html)
 })
@@ -40,8 +41,6 @@ $messageForm.addEventListener('submit', (event) => {
         if (error) {
             return console.log(error)
         }
-
-        console.log('Message delivered!', message)
     })
 })
 
@@ -61,7 +60,6 @@ $locationButton.addEventListener('click', () => {
                 return console.log(error)
             }
 
-            console.log('Location shared!')
             $locationButton.removeAttribute('disabled')
         })
     })
