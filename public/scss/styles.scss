@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+$fbgrey: #f0f2f5;
+$fbgrey-darker: #8a8d91;
+$fbgrey-darkest: #e4e6eb;
+$fbblue: #1778f2;
+$height: 36px;
+
+body {
+    background: #fafafa;
+    font-family: 'Poppins', sans-serif;
+    input[type="text"] {
+        background: $fbgrey;
+        color: #000000;
+        border: none;
+        border-radius: $height;
+        padding: 15px;
+        &:focus {
+            outline: none;
+        }
+    }
+    #messageForm {
+        display: flex;
+        justify-content: space-evenly;
+        input, button {
+            height: $height;
+        }
+        input {
+            width: 100%;
+        }
+        ::placeholder {
+            color: $fbgrey-darker;
+        }
+        .chat-btn {
+            width: $height;
+            border-radius: $height;
+            color: $fbblue;
+            background: transparent;
+            border: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2em;
+            margin-left: 3px;
+            transition: 0.25s;
+            &:hover {
+                background: $fbgrey;
+                transition: 0.5s;
+            }
+        }
+    }
+    .time-stamp {
+        width: 100%;
+        text-align: center;
+        color: $fbgrey-darker;
+        padding: 5px;
+        font-size: 0.8em;
+    }
+    .messages {
+        width: 100%;
+        .message {
+            background: $fbgrey-darkest;
+            height: auto;
+            min-height: $height;
+            max-width: 50%;
+            border-radius: $height;
+            display: inline-block;
+            padding: 0 15px 0 15px;
+            margin: 2px 0 2px 0;
+            &:last-child {
+                margin-bottom: 10px;
+            }
+            p {
+                line-height: 18px;
+                margin-top: 9px;
+            }
+        }
+    }
+}

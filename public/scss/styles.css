@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+body {
+  background: #fafafa;
+  font-family: "Poppins", sans-serif;
+}
+body input[type=text] {
+  background: #f0f2f5;
+  color: #000000;
+  border: none;
+  border-radius: 36px;
+  padding: 15px;
+}
+body input[type=text]:focus {
+  outline: none;
+}
+body #messageForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+body #messageForm input, body #messageForm button {
+  height: 36px;
+}
+body #messageForm input {
+  width: 100%;
+}
+body #messageForm ::-webkit-input-placeholder {
+  color: #8a8d91;
+}
+body #messageForm ::-moz-placeholder {
+  color: #8a8d91;
+}
+body #messageForm :-ms-input-placeholder {
+  color: #8a8d91;
+}
+body #messageForm ::-ms-input-placeholder {
+  color: #8a8d91;
+}
+body #messageForm ::placeholder {
+  color: #8a8d91;
+}
+body #messageForm .chat-btn {
+  width: 36px;
+  border-radius: 36px;
+  color: #1778f2;
+  background: transparent;
+  border: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1.2em;
+  margin-left: 3px;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+}
+body #messageForm .chat-btn:hover {
+  background: #f0f2f5;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+body .time-stamp {
+  width: 100%;
+  text-align: center;
+  color: #8a8d91;
+  padding: 5px;
+  font-size: 0.8em;
+}
+body .messages {
+  width: 100%;
+}
+body .messages .message {
+  background: #e4e6eb;
+  height: auto;
+  min-height: 36px;
+  max-width: 50%;
+  border-radius: 36px;
+  display: inline-block;
+  padding: 0 15px 0 15px;
+  margin: 2px 0 2px 0;
+}
+body .messages .message:last-child {
+  margin-bottom: 10px;
+}
+body .messages .message p {
+  line-height: 18px;
+  margin-top: 9px;
+}/*# sourceMappingURL=styles.css.map */

@@ -4,30 +4,40 @@
         <title>Chat application</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <script src="https://kit.fontawesome.com/887243a7e9.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="/css/styles.css">
+        <link rel="stylesheet" href="/scss/styles.css">
     </head>
     <body>
         <h1>Here will be chat-application</h1>
 
-        <div id="messages"></div>
+        <div class="main container">
+            <div id="messages"></div>
 
-        <form id="messageForm">
-            <label for="msg">Message:</label>
-            <input type="text" id="msg" name="msg">
-            <button type="submit"><i class="fas fa-paper-plane"></i></button>
-        </form>
-
-        <button id="send-location"><i class="fas fa-map-marker-alt"></i></button>
+            <form id="messageForm">
+                <input type="text" id="msg" name="msg" placeholder="Aa">
+                <button type="submit" class="chat-btn"><i class="fas fa-paper-plane"></i></button>
+                <button id="send-location" class="chat-btn"><i class="fas fa-map-marker-alt"></i></button>
+            </form>
+        </div>
 
         <script id="message-template" type="text/html">
-            <div>
-                <p>{{createdAt}}, {{message}}</p>
+            <div class="messages">
+                <div class="time-stamp">
+                    {{createdAt}}
+                </div>
+                <div class="message">
+                    <p>{{message}}</p>
+                </div>
             </div>
         </script>
 
         <script id="location-message-template" type="text/html">
-            <div>
-                <p>{{createdAt}}, <a href="{{url}}" target="_blank">User location</a></p>
+            <div class="messages">
+                <div class="time-stamp">
+                    {{createdAt}}
+                </div>
+                <div class="message">
+                    <p><a href="{{url}}" target="_blank">User location</a></p>
+                </div>
             </div>
         </script>
 
