@@ -1,50 +1,26 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Chat application</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <script src="https://kit.fontawesome.com/887243a7e9.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="/scss/styles.css">
-    </head>
-    <body>
-        <h1>Here will be chat-application</h1>
-
-        <div class="main container">
-            <div id="messages"></div>
-
-            <form id="messageForm">
-                <input type="text" id="msg" name="msg" placeholder="Aa">
-                <button type="submit" class="chat-btn"><i class="fas fa-paper-plane"></i></button>
-                <button id="send-location" class="chat-btn"><i class="fas fa-map-marker-alt"></i></button>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat application</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/887243a7e9.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/scss/styles.css">
+</head>
+<body>
+    <div>
+        <div>
+            <h1>Join </h1>
+            <form action="/chat.html">
+                <label>Display name</label>
+                <input type="text" name="username" placeholder="Display name" required >
+                <label>Room</label>
+                <input type="text" name="room" placeholder="Room" required >
+                <button>Join</button>
             </form>
         </div>
-
-        <script id="message-template" type="text/html">
-            <div class="messages">
-                <div class="time-stamp">
-                    {{createdAt}}
-                </div>
-                <div class="message">
-                    <p>{{message}}</p>
-                </div>
-            </div>
-        </script>
-
-        <script id="location-message-template" type="text/html">
-            <div class="messages">
-                <div class="time-stamp">
-                    {{createdAt}}
-                </div>
-                <div class="message">
-                    <p><a href="{{url}}" target="_blank">User location</a></p>
-                </div>
-            </div>
-        </script>
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.6.0/qs.min.js"></script>
-        <script src="/socket.io/socket.io.js"></script>
-        <script src="/js/chat.js"></script>
-    </body>
+    </div>
+</body>
 </html>

@@ -3,14 +3,14 @@ body {
   background: #fafafa;
   font-family: "Poppins", sans-serif;
 }
-body input[type=text] {
+body input[type=text].chat-input {
   background: #f0f2f5;
   color: #000000;
   border: none;
   border-radius: 36px;
   padding: 15px;
 }
-body input[type=text]:focus {
+body input[type=text].chat-input:focus {
   outline: none;
 }
 body #messageForm {

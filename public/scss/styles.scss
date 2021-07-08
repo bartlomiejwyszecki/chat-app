@@ -9,7 +9,7 @@ $height: 36px;
 body {
     background: #fafafa;
     font-family: 'Poppins', sans-serif;
-    input[type="text"] {
+    input[type="text"].chat-input {
         background: $fbgrey;
         color: #000000;
         border: none;
