@@ -93,4 +93,9 @@ body .messages .message:last-child {
 body .messages .message p {
   line-height: 18px;
   margin-top: 9px;
+}
+body .messages .information {
+  font-size: 0.85em;
+  color: #8a8d91;
+  padding-left: 10px;
 }/*# sourceMappingURL=styles.css.map */
