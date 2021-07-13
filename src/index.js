@@ -4,6 +4,7 @@ const express = require('express')
 const socketio = require('socket.io')
 const Filter = require('bad-words')
 const { generateMessage, generateLocationMessage, generateInformation } = require('./utils/messages')
+const { addUser, removeUser, getUser, getUsersInRoom } = require('./utils/users')
 
 const app = express()
 const server = http.createServer(app)
@@ -14,16 +15,20 @@ const publicDirectioryPath = path.join(__dirname, '../public')
 
 app.use(express.static(publicDirectioryPath))
 
-let count = 0
-
 io.on('connection', (socket) => {
-    console.log('New Websocket connection')
+    socket.on('join', ({ username, room }, callback) => {
+        const { error, user } = addUser({ id: socket.id, username, room })
 
-    socket.on('join', ({ username, room }) => {
-        socket.join(room)
+        if (error) {
+            return callback(error)
+        }
+
+        socket.join(user.room)
 
         socket.emit('message', generateMessage('Welcome'))
-        socket.broadcast.to(room).emit('information', generateInformation(`A ${username} has joined.`))
+        socket.broadcast.to(user.room).emit('information', generateInformation(`${user.username} has joined.`))
+
+        callback()
     })
 
     socket.on('sendMessage', (message, callback) => {
@@ -38,12 +43,14 @@ io.on('connection', (socket) => {
     })
 
     socket.on('disconnect', ({ username, room }) => {
-        socket.broadcast.to(room).emit('information', generateInformation(`A ${username} has left.`))
+        const user = removeUser(socket.id)
+
+        if (user) {
+            io.to(user.room).emit('information', generateInformation(`${user.username} has left.`))
+        }
     })
 
     socket.on('sendLocation', (coords, callback) => {
-        // io.emit('locationMessage', `https://google.com/maps?q=${coords.latitude},${coords.longitude}`)
-        console.log('cords', coords)
         io.emit('locationMessage', generateLocationMessage(`https://google.com/maps?q=${coords.latitude},${coords.longitude}`))
         callback()
     })
